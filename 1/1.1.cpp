@@ -3,37 +3,41 @@
 
 using namespace std;
 
+template <typename T>
 class Queue {
 public:
-	Queue(int lenght);
+	Queue(size_t lenght);
 	~Queue();
-	void	push_back(int data);
-    int		pop_front();
-    bool	is_empty();
+	bool	is_empty();
+	void	push_back(T data);
+    T		pop_front();
 private:
-    int		size;
-    int		head;
-    int		tail;
-    int		*que;
-    int		get_size();
+    size_t	size;
+    size_t	head;
+    size_t	tail;
+    T		*que;
+    size_t	get_size();
     void	init_que();
 	void	increase_que();
 	void	decrease_que();
 };
 
-Queue::Queue(int lenght) :
+template <typename T>
+Queue<T>::Queue(size_t lenght) :
 size(lenght),
 head(0),
 tail(0),
 que(nullptr) {}
 
-Queue::~Queue() {
+template <typename T>
+Queue<T>::~Queue() {
     if (que != nullptr) {
         delete[] que;
 	}
 }
 
-int		Queue::get_size() {
+template <typename T>
+size_t		Queue<T>::get_size() {
 	if (tail < head) {
 		return size - head + tail;
 	} else {
@@ -41,17 +45,20 @@ int		Queue::get_size() {
 	}
 }
 
-bool	Queue::is_empty() {
+template <typename T>
+bool	Queue<T>::is_empty() {
     return head == tail;
 }
 
-void	Queue::init_que() {
-    que = new int[size];
+template <typename T>
+void	Queue<T>::init_que() {
+    que = new T[size];
 }
 
-void	Queue::increase_que() {
-	int *buffer = new int[size * 2];
-	for (int i = 0; i <= size - 2; i++) {
+template <typename T>
+void	Queue<T>::increase_que() {
+	T *buffer = new T[size * 2];
+	for (size_t i = 0; i <= size - 2; i++) {
 		buffer[i] = que[head];
 		head = (head + 1) % size;
 	}
@@ -62,10 +69,11 @@ void	Queue::increase_que() {
 	size *= 2;
 }
 
-void	Queue::decrease_que() {
-	int *buffer = new int[size / 2];
-	int q_size = get_size();
-	for (int i = 0; i <= q_size - 1; i++) {
+template <typename T>
+void	Queue<T>::decrease_que() {
+	T *buffer = new T[size / 2];
+	size_t q_size = get_size();
+	for (size_t i = 0; i <= q_size - 1; i++) {
 		buffer[i] = que[head];
 		head = (head + 1) % size;
 	}
@@ -76,7 +84,8 @@ void	Queue::decrease_que() {
 	size /= 2;
 }
 
-void	Queue::push_back(int data) {
+template <typename T>
+void	Queue<T>::push_back(T data) {
     if (is_empty()) {
 		init_que();
     }
@@ -87,34 +96,34 @@ void	Queue::push_back(int data) {
     tail = (tail + 1) % size;
 }
 
-int		Queue::pop_front() {
+template <typename T>
+T		Queue<T>::pop_front() {
     assert(!is_empty());
     if (get_size() < size / 4 ) {
 		decrease_que();
     }
-    int answer = que[head];
+    T answer = que[head];
     head = (head + 1) % size;
     return answer;
 }
 
-int main() {
-    int n = 0;
-	
+int		main() {
+    size_t n;
     cin >> n;
-    Queue myQueue(10);
-    int count_true = 0;
-    for (int i = 0; i < n; ++i) {
+    Queue<int> myQueue(2);
+    size_t count_true = 0;
+    for (size_t i = 0; i < n; ++i) {
 		int a, b;
         cin >> a >> b;
 		switch (a) {
             case 2:
                 if ((myQueue.is_empty() ? -1 : myQueue.pop_front()) == b) {
-                    count_true += 1;
+                    count_true++;
                 }
                 break;
             case 3:
                 myQueue.push_back(b);
-                count_true += 1;
+                count_true++;
                 break;
 		}
     }

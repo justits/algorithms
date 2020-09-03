@@ -3,39 +3,43 @@
 
 using namespace std;
 
+template <typename T>
 class Deque {
 public:
-	Deque(int lenght);
+	Deque(size_t lenght);
 	~Deque();
-	void	push_front(int data);
-	void	push_back(int data);
-    int		pop_front();
-	int		pop_back();
-    bool	is_empty();
+	bool	is_empty();
+	void	push_front(T data);
+	void	push_back(T data);
+    T		pop_front();
+	T		pop_back();
 private:
-    int		size;
-    int		head;
-    int		tail;
-    int		*dec;
-    int		get_size();
+    size_t	size;
+    size_t	head;
+    size_t	tail;
+    T		*dec;
+    size_t	get_size();
     void	init_dec();
 	void	increase_dec();
 	void	decrease_dec();
 };
 
-Deque::Deque(int lenght) :
+template <typename T>
+Deque<T>::Deque(size_t lenght) :
 size(lenght),
 head(0),
 tail(0),
 dec(nullptr) {}
 
-Deque::~Deque() {
+template <typename T>
+Deque<T>::~Deque() {
     if (dec != nullptr) {
         delete[] dec;
 	}
 }
 
-int		Deque::get_size() {
+template <typename T>
+size_t	Deque<T>::get_size() {
 	if (tail < head) {
 		return size - head + tail;
 	} else {
@@ -43,17 +47,20 @@ int		Deque::get_size() {
 	}
 }
 
-bool	Deque::is_empty() {
+template <typename T>
+bool	Deque<T>::is_empty() {
     return head == tail;
 }
 
-void	Deque::init_dec() {
-    dec = new int[size];
+template <typename T>
+void	Deque<T>::init_dec() {
+    dec = new T[size];
 }
 
-void	Deque::increase_dec() {
-	int *buffer = new int[size * 2];
-	for (int i = 0; i <= size - 2; i++) {
+template <typename T>
+void	Deque<T>::increase_dec() {
+	T *buffer = new T[size * 2];
+	for (size_t i = 0; i <= size - 2; i++) {
 		buffer[i] = dec[head];
 		head = (head + 1) % size;
 	}
@@ -64,10 +71,11 @@ void	Deque::increase_dec() {
 	size *= 2;
 }
 
-void	Deque::decrease_dec() {
-	int *buffer = new int[size / 2];
-	int d_size = get_size();
-	for (int i = 0; i <= d_size - 1; i++) {
+template <typename T>
+void	Deque<T>::decrease_dec() {
+	T *buffer = new T[size / 2];
+	size_t d_size = get_size();
+	for (size_t i = 0; i <= d_size - 1; i++) {
 		buffer[i] = dec[head];
 		head = (head + 1) % size;
 	}
@@ -78,7 +86,8 @@ void	Deque::decrease_dec() {
 	size /= 2;
 }
 
-void	Deque::push_front(int data) {
+template <typename T>
+void	Deque<T>::push_front(T data) {
     if (is_empty()) {
 		init_dec();
     }
@@ -89,7 +98,8 @@ void	Deque::push_front(int data) {
     dec[head] = data;
 }
 
-void	Deque::push_back(int data) {
+template <typename T>
+void	Deque<T>::push_back(T data) {
     if (is_empty()) {
 		init_dec();
     }
@@ -100,17 +110,19 @@ void	Deque::push_back(int data) {
     tail = (tail + 1) % size;
 }
 
-int		Deque::pop_front() {
+template <typename T>
+T		Deque<T>::pop_front() {
     assert(!is_empty());
     if (get_size() < size / 4 ) {
 		decrease_dec();
     }
-    int answer = dec[head];
+    T answer = dec[head];
     head = (head + 1) % size;
     return answer;
 }
 
-int		Deque::pop_back() {
+template <typename T>
+T		Deque<T>::pop_back() {
     assert(!is_empty());
     if (get_size() < size / 4 ) {
 		decrease_dec();
@@ -119,32 +131,31 @@ int		Deque::pop_back() {
     return dec[tail];
 }
 
-int main() {
-    int n = 0;
-	
+int		main() {
+    size_t n;
     cin >> n;
-    Deque myDeque(1);
-    int count_true = 0;
-    for (int i = 0; i < n; ++i) {
+    Deque<int> myDeque(2);
+    size_t count_true = 0;
+    for (size_t i = 0; i < n; ++i) {
 		int a, b;
         cin >> a >> b;
 		switch (a) {
 			case 1:
                 myDeque.push_front(b);
-                count_true += 1;
+                count_true++;
                 break;
             case 2:
                 if ((myDeque.is_empty() ? -1 : myDeque.pop_front()) == b) {
-                    count_true += 1;
+                    count_true++;
                 }
                 break;
             case 3:
                 myDeque.push_back(b);
-                count_true += 1;
+                count_true++;
                 break;
 			case 4:
 				if ((myDeque.is_empty() ? -1 : myDeque.pop_back()) == b) {
-					count_true += 1;
+					count_true++;
 				}
 				break;
 		}
