@@ -12,8 +12,8 @@ public:
 	void	push(T data);
     T		pop();
 private:
-    size_t	size;
-	size_t	head;
+    size_t	buf_size;
+	size_t	size;
     T		*stack;
 	void	init_stack();
 	void	increase_stack();
@@ -22,8 +22,8 @@ private:
 
 template <typename T>
 Stack<T>::Stack(size_t lenght) :
-size(lenght),
-head(0),
+buf_size(lenght),
+size(0),
 stack(nullptr) {
 	init_stack();
 }
@@ -37,51 +37,51 @@ Stack<T>::~Stack() {
 
 template <typename T>
 void	Stack<T>::init_stack() {
-	stack = new T[size];
+	stack = new T[buf_size];
 }
 
 template <typename T>
 void	Stack<T>::increase_stack() {
-	T *buffer = new T[size * 2];
-	for (size_t i = 0; i < size; i++) {
+	T *buffer = new T[buf_size * 2];
+	for (size_t i = 0; i < buf_size; i++) {
 		buffer[i] = stack[i];
 	}
 	delete[] stack;
 	stack = buffer;
-	size *= 2;
+	buf_size *= 2;
 }
 
 template <typename T>
 void	Stack<T>::decrease_stack() {
-	T *buffer = new T[size / 2];
-	for (size_t i = 0; i < size / 4; i++) {
+	T *buffer = new T[buf_size / 2];
+	for (size_t i = 0; i < buf_size / 4; i++) {
 		buffer[i] = stack[i];
 	}
 	delete[] stack;
 	stack = buffer;
-	size /= 2;
+	buf_size /= 2;
 }
 
 template <typename T>
 bool	Stack<T>::is_empty() {
-	return head == 0;
+	return size == 0;
 }
 
 template <typename T>
 void	Stack<T>::push(T data) {
-	if (head == size - 1) {
+	if (size == buf_size - 1) {
 		increase_stack();
 	}
-	head++;
-	stack[head] = data;
+	size++;
+	stack[size] = data;
 }
 
 template <typename T>
 T		Stack<T>::pop() {
 	assert(!is_empty());
-	T	answer = stack[head];
-	head--;
-	if (head < size / 4) {
+	T	answer = stack[size];
+	size--;
+	if (size < buf_size / 4) {
 		decrease_stack();
 	}
 	return answer;
