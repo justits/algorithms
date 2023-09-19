@@ -24,7 +24,6 @@ pLook[i] = pLook[i-1] \cdot (1-pRel[i-1]) \cdot (1-pBreak)
 pBreak = 0.15
 ```
 
-
 ## single-elimination tournament
 
 While Mary was on vacation, her colleagues organized a chess tournament according to the Olympic system. 
@@ -47,3 +46,14 @@ Output **NO SOLUTION** if Mary has memorized the games incorrectly and it is imp
 If a tournament grid is possible, print two names of candidates for the first place in one line.
 
 more about [Single-elimination tournament](https://en.wikipedia.org/wiki/Single-elimination_tournament)
+
+
+## theater season
+
+The international ticket sales service decided to sum up the results of the theater season. 
+As one of the metrics, the project manager wants to count the number of users who bought tickets to different performances.
+
+When buying a ticket, the user specifies his phone number. 
+It is necessary to find the performance with the largest number of unique phone numbers. 
+And count the number of corresponding unique phone numbers.
+
