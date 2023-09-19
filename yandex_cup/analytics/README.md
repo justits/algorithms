@@ -1,13 +1,13 @@
 ## calculate pFound
 The archive contains three text files:
 
-- qid_query.tsv — request id and request text;
-- qid_url_rating.tsv – request id, document URL, relevance of the document to the request;
+- qid_query.tsv — query id and query text;
+- qid_url_rating.tsv – query id, document URL, relevance of the document to the query;
 - hostid_url.tsv — host id and document URL.
 
-Output the **request text** with the maximum value of the **pFound** metric calculated from the top 10 documents.
+Output the **query text** with the maximum value of the **pFound** metric calculated from the top 10 documents.
 
-If there are several documents with the same host id for the request, leave only the most relevant document (and if several documents are as relevant as possible, choose any one).
+If there are several documents with the same host id for the query, leave only the most relevant document (and if several documents are as relevant as possible, choose any one).
 
 **Formula for calculating pFound:**
 
