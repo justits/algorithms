@@ -12,5 +12,10 @@ If there are several documents with the same host id for the request, leave only
 **Formula for calculating pFound:**
 
 ```math
-e^{i\pi} + 1 = 0
+\sum_{i=1}^{10} pLook[i] \cdot pRel[i]
+```
+```math
+pLook[1] = 1
+pLook[i] = pLook[i-1] \cdot (1-pRel[i-1]) \cdot (1-pBreak)
+pBreak = 0.15
 ```
