@@ -36,7 +36,7 @@ Help her check if this is the case and identify possible candidates for winners.
 
 
 **Input:**
-The first line contains an integer n $3 \leqslant n \leqslant 2^16 - 1, n = 2^k - 1$ — the number of past games. 
+The first line contains an integer n $3 \leqslant n \leqslant 2^{16} - 1, n = 2^k - 1$ — the number of past games. 
 
 In the next n lines — two surnames of the players separated by a space. 
 The surnames of the players are different. 
