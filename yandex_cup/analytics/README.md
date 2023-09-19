@@ -16,6 +16,8 @@ If there are several documents with the same host id for the request, leave only
 ```
 ```math
 pLook[1] = 1
+
 pLook[i] = pLook[i-1] \cdot (1-pRel[i-1]) \cdot (1-pBreak)
+
 pBreak = 0.15
 ```
