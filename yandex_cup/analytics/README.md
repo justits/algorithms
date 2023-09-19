@@ -23,3 +23,27 @@ pLook[i] = pLook[i-1] \cdot (1-pRel[i-1]) \cdot (1-pBreak)
 ```math
 pBreak = 0.15
 ```
+
+
+## single-elimination tournament
+
+While Mary was on vacation, her colleagues organized a chess tournament according to the Olympic system. 
+During the rest, Mary did not pay much attention to this idea, so she can barely remember who played with whom. 
+Suddenly Mary came up with the idea that it would be nice to bring a souvenir from vacation to the winner of the tournament.
+
+Mary doesn't know who won the final, but she can easily figure out who played in it, if only she remembered the playing pairs correctly. 
+Help her check if this is the case and identify possible candidates for winners.
+
+
+**Input:**
+The first line contains an integer n $3 \leqslant n \leqslant 2^16 - 1, n = 2^k - 1$ — the number of past games. 
+
+In the next n lines — two surnames of the players separated by a space. 
+The surnames of the players are different. 
+All surnames are unique, there are no namesakes among colleagues.
+
+**Output:**
+Output **NO SOLUTION** if Mary has memorized the games incorrectly and it is impossible to get a Single-elimination tournament using this grid. 
+If a tournament grid is possible, print two names of candidates for the first place in one line.
+
+more about [Single-elimination tournament](https://en.wikipedia.org/wiki/Single-elimination_tournament)
