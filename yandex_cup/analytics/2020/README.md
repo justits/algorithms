@@ -50,10 +50,22 @@ user_1@contest.yandex.ru, 880222222222 <br>
 user_2@contest.yandex.ru, 880222222222 <br>
 user_3@contest.yandex.ru, 880333333333
 
-first user:  <br>
+**first user:**  <br>
 user_1@contest.yandex.ru, 880111111111 <br>
 user_1@contest.yandex.ru, 880222222222 <br>
 user_2@contest.yandex.ru, 880222222222 <br>
 
-second user:  <br>
+**second user:**  <br>
 user_3@contest.yandex.ru, 880333333333
+
+
+## the epidemic on the "Tortuga"
+The bosun of the ship "Tortuga" contracted an unknown virus on the last day on land before a long voyage.
+The symptoms of the virus carrier appear on the 14th day after the day of infection. 
+On the ship "Tortuga", a patient with symptoms immediately goes to self-isolation in the hold and
+loses the opportunity to infect others (on the day of symptoms, the patient does not infect anyone).
+The number of people infected by one virus carrier per day with an unlimited number of victims
+has a binomial distribution with parameters n=10 and p=0.08, and does not depend on the number of other carriers.
+There are 124 people on the ship.
+
+On what day of the voyage is it most likely that it will be found that all the people on the ship have been in the hold?
