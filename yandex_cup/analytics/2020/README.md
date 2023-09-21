@@ -21,3 +21,18 @@ The session ends if the user has not performed any actions for 30 minutes or mor
 
 3. Find the ten-minute interval _[time; time + 10 minutes)_ during which the most events occurred.
 If there are several such intervals, specify the beginning of the latest interval.
+
+
+## deck of cards
+
+From a deck of cards (32 cards) you are given 6 cards in a row. 
+With what probability do the cards issued in total give 50 points?
+
+Consider that:
+- the jack is 11 points 
+- the queen is 12 points
+- the king is 13 points
+- the ace is 14 points
+- The number of points for the remaining cards is the same as their face value.
+
+Round the answer to the sixth digit after the dot.
