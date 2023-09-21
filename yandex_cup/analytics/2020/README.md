@@ -36,3 +36,24 @@ Consider that:
 - The number of points for the remaining cards is the same as their face value.
 
 Round the answer to the sixth digit after the dot.
+
+
+## movie tickets
+
+When a users buy a ticket, they can specify their email or phone number, or email and phone number at once.
+Write an algorithm that, based on a list of such transactions, finds the user who bought the most tickets.
+Find the number of lines in the source file that relate to this user.
+
+**Example of linking users by logs:**<br>
+user_1@contest.yandex.ru, 880111111111 <br>
+user_1@contest.yandex.ru, 880222222222 <br>
+user_2@contest.yandex.ru, 880222222222 <br>
+user_3@contest.yandex.ru, 880333333333
+
+first user:  <br>
+user_1@contest.yandex.ru, 880111111111 <br>
+user_1@contest.yandex.ru, 880222222222 <br>
+user_2@contest.yandex.ru, 880222222222 <br>
+
+second user:  <br>
+user_3@contest.yandex.ru, 880333333333
