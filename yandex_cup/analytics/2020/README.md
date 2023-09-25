@@ -73,7 +73,7 @@ On what day of the voyage is it most likely that it will be found that all the p
 
 ## saw
 
-An array of integers $a_{0}, a_{1}, a_{2}, ..., a_{n-1}% is called a saw if for any pair $a_{i}, a_{i+1}$ is true::
+An array of integers $a_{0}, a_{1}, a_{2}, ..., a_{n-1}$ is called a saw if for any pair $a_{i}, a_{i+1}$ is true::
 - $a_{i} ≤ a_{i+1}$ - если i чётно
 - $a_{i} ≥ a_{i+1}$ - если i нечётно
 
