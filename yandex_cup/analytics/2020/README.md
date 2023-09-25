@@ -69,3 +69,16 @@ has a binomial distribution with parameters n=10 and p=0.08, and does not depend
 There are 124 people on the ship.
 
 On what day of the voyage is it most likely that it will be found that all the people on the ship have been in the hold?
+
+
+## saw
+
+An array of integers $a_{0}, a_{1}, a_{2}, ..., a_{n-1}% is called a saw if for any pair $a_{i}, a_{i+1}$ is true::
+- $a_{i} ≤ a_{i+1}$ - если i чётно
+- $a_{i} ≥ a_{i+1}$ - если i нечётно
+
+Given an array of integers in which k numbers are skipped (in their place are "-") 
+and a set of k integers that need to be inserted into the place of the gaps so that the resulting array becomes a "saw".
+
+If there are several solutions, output any one. 
+If you cannot create "saw", output 'NO SOLUTION'.
